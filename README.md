@@ -1324,7 +1324,7 @@ Binary Exploitation/pwn
 
 
 
-Miscellaneous
+Misc / Не входящее в другие категории
 ----------
 
 * [Payload All The Things](https://github.com/swisskyrepo/PayloadsAllTheThings)
