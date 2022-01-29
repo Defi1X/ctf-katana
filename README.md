@@ -312,10 +312,10 @@ Ook! Ook! Ook? Ook! Ook? Ook. Ook. Ook. Ook! Ook. Ook. Ook. Ook. Ook. Ook. Ook.
 
 * [Rockstar](https://esolangs.org/wiki/Rockstar)
 
-	A language intended to look like song lyrics [github link](https://github.com/RockstarLang/rockstar).
-	Rockstar has an official online interpreter which you can find here: [https://codewithrockstar.com/online](https://codewithrockstar.com/online)
+	Язык который выглядит как текста песен [ссылка на гихаб](https://github.com/RockstarLang/rockstar).
+	У Rockstar есть официальный интерпритатор: [https://codewithrockstar.com/online](https://codewithrockstar.com/online)
 
-	below is fizzbuzz in Rockstar:
+	FizzBuzz на Rockstar'е:
 ```
 Midnight takes your heart and your soul
 While your heart is as high as your soul
@@ -350,35 +350,35 @@ Whisper my world
 
 * [StegCracker][StegCracker]
 
-	Don't ever forget about [`steghide`][steghide]! This tool can use a password list like `rockyou.txt` with steghide. SOME IMAGES CAN HAVE MULTIPLE FILED ENCODED WITH MULTIPLE PASSWORDS.
+	Но не забудьте про [`steghide`][steghide]! Предоставьте `rockyou.txt` в steghide. ИНОГДА КАРТИНКИ СОДЕРЖАТ НЕСКОЛЬКО ФАЙЛОВ С РАЗНЫМИ ПАРОЛЯМИ.
 
 * [Steganography Online](http://stylesuxx.github.io/steganography/)
 
-	A tool often used in CTFs for encoding messages into images.
+	С помощью этого часто прячуть сообщения в картинки на цтф.
 
 * [StegSeek][StegSeek]
 
-	This is similar to `stegcracker`, but _much_ faster. Can also extract metadata without a password list.
+	Похож на `stegcracker`, но работает _гораздо_ быстрее. Может так же достать метадату без пароля.
 
 * [`steg_brute.py`](https://github.com/Va5c0/Steghide-Brute-Force-Tool)
 
-	This is similar to `stegcracker` above.
+	Похож на `stegcracker`.
 
 * [`openstego`][OpenStego]
 
-	A [Java][Java] [`.JAR`][JAR] tool, that can extract data from an image. A good tool to use on guessing challenges, when you don't have any other leads. We found this tool after the [Misc50](http://0xahmed.ninja/nullcon-hackim18-ctf-writeups/) challenge from [HackIM 2018](https://ctftime.org/event/566)
+	[Java][Java] [`.JAR`][JAR] программа, достает файлы из картинок. Можно использовать, когда нет других идей. Мы использовали эту прогу в челлендже [Misc50](http://0xahmed.ninja/nullcon-hackim18-ctf-writeups/) с [HackIM 2018](https://ctftime.org/event/566)
 
 * [`Stegsolve.jar`][Stegsolve.jar]
 
-	A [Java][Java] [`.JAR`][JAR] tool, that will open an image and let you as the user arrow through different renditions of the image (viewing color channels, inverted colors, and more). The tool is surprisingly useful.
+	[Java][Java] [`.JAR`][JAR] прога, открывает картинку и позволяет смотреть на нее в разных режимах. Оооочень часто используется.
 
 * [`steghide`][steghide]
 
-	A command-line tool typically used alongside a password or key, that could be uncovered some other way when solving a challenge.
+	CLI программа, зачастую нужен пароль, который скорее всего дан где либо в этом же челлендже.
 
 * [`stepic`](http://domnit.org/stepic/doc/)
 
-	Python image steganography. Stepic hides arbitrary data inside PIL images. Download it here: http://domnit.org/stepic/doc/
+	Стеганография картинок в питоне. Stepic скрывает данные внутри PIL картинок. Скачать можно тут: http://domnit.org/stepic/doc/
 
 * [Digital Invisible Ink Stego Tool](http://diit.sourceforge.net/)
 
