@@ -19,7 +19,7 @@ CTF-Katana-ru
 4. [1433 (Microsoft SQL Сервер)](#1433-microsoft-sql-сервер)
 5. [SNMP](#snmp)
 6. [Макросы в Microsoft Office](#макросы-в-microsoft-office)
-7. [Получение хэшей Сетевых Служб](#retrieving-network-service-hashes)
+7. [Получение хэшей Сетевых Служб](#получение-хэшей-сетевых-служб)
 8. [Обратный Шелл для Windows](#windows-reverse-shells)
 9. [Известные Эксплоиты](#known-exploits)
 10. [Excess](#excess)
