@@ -38,10 +38,9 @@ CTF-Katana-ru
 24. [Исполняемые Файлы Windows](#Исполняемые-Файлы-Windows)
 25. [Python Реверс](#Python-Реверс)
 26. [Binary Exploitation/pwn](#binary-exploitationpwn)
-27. [VisualBasicScript Реверс](#visualbasicscript-Реверс)
-28. [Misc / Не входящее в другие категории](#Misc-Не-входящее-в-другие-категории)
-29. [Jail Breaks](#jail-breaks)
-30. [Тривиальное](#Тривиальное)
+27. [Misc / Не входящее в другие категории](#Misc-Не-входящее-в-другие-категории)
+28. [Jail Breaks](#jail-breaks)
+29. [Тривиальное](#Тривиальное)
 
 ---------------
 
@@ -346,7 +345,7 @@ Take it to the top
 Whisper my world
 ```
 
-Steganography
+Стеганография
 ---------------------
 
 * [StegCracker][StegCracker]
@@ -497,7 +496,7 @@ sudo apt install zbar-tools
 
 	I have seen some challenges use just the end of `.` or `?` or `!` to represent the [Ook](http://esolangs.org/wiki/ook!) esoteric programming language. Don't forget that is a thing!
 
-Cryptography
+Криптография
 -----------------
 
 * Cryptii
@@ -698,7 +697,7 @@ on [https://www.boxentriq.com/code-breaking/hexahue](https://www.boxentriq.com/c
 ![img](img/hexahue-alphabet.png)
 
 
-Networking
+Работа с сетью
 ---------------
 
 * [Wireshark]
@@ -808,7 +807,7 @@ http://103.5.112.91:1234/?cmd=whoami&page=data://text/plain;base64,PD9waHAgZWNob
 ```
 
 
-PDF Files
+PDF Файлы
 -------------
 
 * `pdfinfo`
@@ -827,7 +826,7 @@ PDF Files
 
 	A command-line tool to extract files out of a [PDF].
 
-Forensics
+Форензика
 -----------
 
 * Python bytecode `uncompyle6`
@@ -897,7 +896,7 @@ sudo apt install foremost
 
 
 
-PNG File Forensics
+PNG Форензика
 --------------------
 
 
@@ -916,7 +915,7 @@ PNG File Forensics
 	Utility to try and correct a [PNG] file. **NOTE... this will NOT SAVE your file as new one. YOU HAVE TO SHOW the file (enter y when using the script]) to actually view the new image.**
 
 
-APK Forensics
+APK Форензика
 ---------------
 
 * [`apktool`][apktool]
@@ -938,7 +937,7 @@ apktool d <file.apk>
 	A GUI tool to decompile Java code, and JAR files.
 
 
-Web
+Веб
 ----------------
 
 * `robots.txt`
@@ -1133,7 +1132,7 @@ aws s3 cp --recursive --no-sign-request s3://<bucket_name> .
 	i. e. `aws s3 cp --recursive --no-sign-request s3://tamuctf .`
 
 
-Reverse Engineering
+Реверс-Инжинеринг
 -------------------
 
 * [ltrace](http://man7.org/linux/man-pages/man1/ltrace.1.html) and [strace](https://strace.io)
@@ -1269,7 +1268,7 @@ PowerShell
 	Great tool and guide for anti-virus evasion with PowerShell.
 
 
-Windows Executables
+Исполняемые Файлы Windows
 -------------
 
 * [`pefile`][pefile]
@@ -1290,7 +1289,7 @@ Windows Executables
 
 	When debugging AutoIT programs, you may get a notification: "This is a compiled AutoIT script". Here is a good thing to use to decode them: [https://www.autoitscript.com/site/autoit/downloads/](https://www.autoitscript.com/site/autoit/downloads/)
 
-Python Reversing
+Python Реверс
 ------------
 
 * [Easy Python Decompiler](https://sourceforge.net/projects/easypythondecompiler/)
@@ -1492,7 +1491,7 @@ Sometimes you're jailed in an environment where you can potentially execute code
 `().__class__.__base__.__subclasses__()` - Gives access to `object` subclasses
 
 
-Trivia
+Тривиальное
 -------------
 
 * Trivia Question: a reliable mechanism for websites to remember stateful information. Yummy!
