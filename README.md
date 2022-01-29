@@ -13,7 +13,7 @@ CTF-Katana
 ---------------
 # Содержание
 
-1. [Пост-эксплуатация](#post-exploitation)
+1. [Пост-эксплуатация](#Пост-эксплуатация)
 2. [Сканирование портов](#port-enumeration)
 3. [445 (smb/Samba)](#445-smbsamba)
 4. [1433 (Microsoft SQL Сервер)](#1433-microsoft-sql-server)
@@ -45,7 +45,7 @@ CTF-Katana
 
 ---------------
 
-Post-Exploitation
+Пост-эксплуатация
 ====================
 
 * [static-binaries](https://github.com/andrew-d/static-binaries)
