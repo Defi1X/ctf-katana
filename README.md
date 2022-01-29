@@ -38,7 +38,7 @@ CTF-Katana-ru
 24. [Исполняемые Файлы Windows](#Исполняемые-Файлы-Windows)
 25. [Python Реверс](#Python-Реверс)
 26. [Binary Exploitation/pwn](#binary-exploitationpwn)
-27. [Misc / Не входящее в другие категории](#Misc-Не-входящее-в-другие-категории)
+27. [Misc / Не входящее в другие категории](#MiscНе-входящее-в-другие-категории)
 28. [Jail Breaks](#jail-breaks)
 29. [Тривиальное](#Тривиальное)
 
