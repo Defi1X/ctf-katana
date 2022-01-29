@@ -23,7 +23,7 @@ CTF-Katana
 8. [Обратный Шелл для Windows](#windows-reverse-shells)
 9. [Известные Эксплоиты](#known-exploits)
 10. [Excess](#excess)
-11. [Эзотерические Языки Программирования](#esoteric-languages)
+11. [Эзотерические Языки Программирования](#Эзотерические-Языки-Программирования)
 13. [Стеганография](#steganography)
 14. [Криптография](#cryptography)
 15. [Работа с сетью](#networking)
