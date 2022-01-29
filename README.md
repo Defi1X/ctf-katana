@@ -38,7 +38,7 @@ CTF-Katana-ru
 23. [Исполняемые Файлы Windows](#Исполняемые-Файлы-Windows)
 24. [Python Реверс](#Python-Реверс)
 25. [Binary Exploitation/pwn](#binary-exploitationpwn)
-26. [Misc / Не входящее в другие категории](#MiscНе-входящее-в-другие-категории)
+26. [Misc](#Misc)
 27. [Jail Breaks](#jail-breaks)
 28. [Тривиальное](#Тривиальное)
 
@@ -1324,7 +1324,7 @@ Binary Exploitation/pwn
 
 
 
-Misc / Не входящее в другие категории
+Misc
 ----------
 
 * [Payload All The Things](https://github.com/swisskyrepo/PayloadsAllTheThings)
