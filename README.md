@@ -1,7 +1,7 @@
-CTF-Katana
+CTF-Katana-ru
 ===============
 
-> John Hammond | February 1st, 2018
+> John Hammond | 1 февраля 2018
 
 --------------------------
 
