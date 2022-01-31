@@ -312,7 +312,7 @@ Ook! Ook! Ook? Ook! Ook? Ook. Ook. Ook. Ook! Ook. Ook. Ook. Ook. Ook. Ook. Ook.
 
 * [Rockstar](https://esolangs.org/wiki/Rockstar)
 
-	Язык который выглядит как текста песен [ссылка на гихаб](https://github.com/RockstarLang/rockstar).
+	Язык который выглядит, как текста песен [ссылка на гихаб](https://github.com/RockstarLang/rockstar).
 	У Rockstar есть официальный интерпритатор: [https://codewithrockstar.com/online](https://codewithrockstar.com/online)
 
 	FizzBuzz на Rockstar'е:
@@ -354,7 +354,7 @@ Whisper my world
 
 * [Steganography Online](http://stylesuxx.github.io/steganography/)
 
-	С помощью этого часто прячуть сообщения в картинки на цтф.
+	С помощью этого часто прячут сообщения в картинки на цтф.
 
 * [StegSeek][StegSeek]
 
